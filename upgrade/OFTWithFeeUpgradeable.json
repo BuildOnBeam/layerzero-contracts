@@ -1,0 +1,432 @@
+{
+  "storage": [
+    {
+      "astId": 3492,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_initialized",
+      "offset": 0,
+      "slot": "0",
+      "type": "t_uint8"
+    },
+    {
+      "astId": 3495,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_initializing",
+      "offset": 1,
+      "slot": "0",
+      "type": "t_bool"
+    },
+    {
+      "astId": 4740,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "1",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 3364,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_owner",
+      "offset": 0,
+      "slot": "51",
+      "type": "t_address"
+    },
+    {
+      "astId": 3484,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "52",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 23,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "lzEndpoint",
+      "offset": 0,
+      "slot": "101",
+      "type": "t_contract(ILayerZeroEndpointUpgradeable)979"
+    },
+    {
+      "astId": 27,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "trustedRemoteLookup",
+      "offset": 0,
+      "slot": "102",
+      "type": "t_mapping(t_uint16,t_bytes_storage)"
+    },
+    {
+      "astId": 33,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "minDstGasLookup",
+      "offset": 0,
+      "slot": "103",
+      "type": "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))"
+    },
+    {
+      "astId": 37,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "payloadSizeLimitLookup",
+      "offset": 0,
+      "slot": "104",
+      "type": "t_mapping(t_uint16,t_uint256)"
+    },
+    {
+      "astId": 39,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "precrime",
+      "offset": 0,
+      "slot": "105",
+      "type": "t_address"
+    },
+    {
+      "astId": 571,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "106",
+      "type": "t_array(t_uint256)45_storage"
+    },
+    {
+      "astId": 614,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "failedMessages",
+      "offset": 0,
+      "slot": "151",
+      "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))"
+    },
+    {
+      "astId": 833,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "152",
+      "type": "t_array(t_uint256)49_storage"
+    },
+    {
+      "astId": 1049,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "sharedDecimals",
+      "offset": 0,
+      "slot": "201",
+      "type": "t_uint8"
+    },
+    {
+      "astId": 1051,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "useCustomAdapterParams",
+      "offset": 1,
+      "slot": "201",
+      "type": "t_bool"
+    },
+    {
+      "astId": 1059,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "creditedPackets",
+      "offset": 0,
+      "slot": "202",
+      "type": "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bool)))"
+    },
+    {
+      "astId": 2054,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "203",
+      "type": "t_array(t_uint256)44_storage"
+    },
+    {
+      "astId": 2328,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "chainIdToFeeBps",
+      "offset": 0,
+      "slot": "247",
+      "type": "t_mapping(t_uint16,t_struct(FeeConfig)2337_storage)"
+    },
+    {
+      "astId": 2330,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "defaultFeeBp",
+      "offset": 0,
+      "slot": "248",
+      "type": "t_uint16"
+    },
+    {
+      "astId": 2332,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "feeOwner",
+      "offset": 2,
+      "slot": "248",
+      "type": "t_address"
+    },
+    {
+      "astId": 2555,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "249",
+      "type": "t_array(t_uint256)45_storage"
+    },
+    {
+      "astId": 4784,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "294",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 2314,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "344",
+      "type": "t_array(t_uint256)50_storage"
+    },
+    {
+      "astId": 3673,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_balances",
+      "offset": 0,
+      "slot": "394",
+      "type": "t_mapping(t_address,t_uint256)"
+    },
+    {
+      "astId": 3679,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_allowances",
+      "offset": 0,
+      "slot": "395",
+      "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+    },
+    {
+      "astId": 3681,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_totalSupply",
+      "offset": 0,
+      "slot": "396",
+      "type": "t_uint256"
+    },
+    {
+      "astId": 3683,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_name",
+      "offset": 0,
+      "slot": "397",
+      "type": "t_string_storage"
+    },
+    {
+      "astId": 3685,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "_symbol",
+      "offset": 0,
+      "slot": "398",
+      "type": "t_string_storage"
+    },
+    {
+      "astId": 4265,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "__gap",
+      "offset": 0,
+      "slot": "399",
+      "type": "t_array(t_uint256)45_storage"
+    },
+    {
+      "astId": 2615,
+      "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+      "label": "ld2sdRate",
+      "offset": 0,
+      "slot": "444",
+      "type": "t_uint256"
+    }
+  ],
+  "types": {
+    "t_address": {
+      "encoding": "inplace",
+      "label": "address",
+      "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)44_storage": {
+      "encoding": "inplace",
+      "label": "uint256[44]",
+      "numberOfBytes": "1408",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)45_storage": {
+      "encoding": "inplace",
+      "label": "uint256[45]",
+      "numberOfBytes": "1440",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)49_storage": {
+      "encoding": "inplace",
+      "label": "uint256[49]",
+      "numberOfBytes": "1568",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)50_storage": {
+      "encoding": "inplace",
+      "label": "uint256[50]",
+      "numberOfBytes": "1600",
+      "base": "t_uint256"
+    },
+    "t_bool": {
+      "encoding": "inplace",
+      "label": "bool",
+      "numberOfBytes": "1"
+    },
+    "t_bytes32": {
+      "encoding": "inplace",
+      "label": "bytes32",
+      "numberOfBytes": "32"
+    },
+    "t_bytes_memory_ptr": {
+      "encoding": "bytes",
+      "label": "bytes",
+      "numberOfBytes": "32"
+    },
+    "t_bytes_storage": {
+      "encoding": "bytes",
+      "label": "bytes",
+      "numberOfBytes": "32"
+    },
+    "t_contract(ILayerZeroEndpointUpgradeable)979": {
+      "encoding": "inplace",
+      "label": "contract ILayerZeroEndpointUpgradeable",
+      "numberOfBytes": "20"
+    },
+    "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => mapping(address => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_address,t_uint256)"
+    },
+    "t_mapping(t_address,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_address",
+      "label": "mapping(address => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bool))": {
+      "encoding": "mapping",
+      "key": "t_bytes_memory_ptr",
+      "label": "mapping(bytes => mapping(uint64 => bool))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint64,t_bool)"
+    },
+    "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))": {
+      "encoding": "mapping",
+      "key": "t_bytes_memory_ptr",
+      "label": "mapping(bytes => mapping(uint64 => bytes32))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint64,t_bytes32)"
+    },
+    "t_mapping(t_uint16,t_bytes_storage)": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => bytes)",
+      "numberOfBytes": "32",
+      "value": "t_bytes_storage"
+    },
+    "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bool)))": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bool)))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bool))"
+    },
+    "t_mapping(t_uint16,t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32)))": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => mapping(bytes => mapping(uint64 => bytes32)))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_bytes_memory_ptr,t_mapping(t_uint64,t_bytes32))"
+    },
+    "t_mapping(t_uint16,t_mapping(t_uint16,t_uint256))": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => mapping(uint16 => uint256))",
+      "numberOfBytes": "32",
+      "value": "t_mapping(t_uint16,t_uint256)"
+    },
+    "t_mapping(t_uint16,t_struct(FeeConfig)2337_storage)": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => struct FeeUpgradeable.FeeConfig)",
+      "numberOfBytes": "32",
+      "value": "t_struct(FeeConfig)2337_storage"
+    },
+    "t_mapping(t_uint16,t_uint256)": {
+      "encoding": "mapping",
+      "key": "t_uint16",
+      "label": "mapping(uint16 => uint256)",
+      "numberOfBytes": "32",
+      "value": "t_uint256"
+    },
+    "t_mapping(t_uint64,t_bool)": {
+      "encoding": "mapping",
+      "key": "t_uint64",
+      "label": "mapping(uint64 => bool)",
+      "numberOfBytes": "32",
+      "value": "t_bool"
+    },
+    "t_mapping(t_uint64,t_bytes32)": {
+      "encoding": "mapping",
+      "key": "t_uint64",
+      "label": "mapping(uint64 => bytes32)",
+      "numberOfBytes": "32",
+      "value": "t_bytes32"
+    },
+    "t_string_storage": {
+      "encoding": "bytes",
+      "label": "string",
+      "numberOfBytes": "32"
+    },
+    "t_struct(FeeConfig)2337_storage": {
+      "encoding": "inplace",
+      "label": "struct FeeUpgradeable.FeeConfig",
+      "numberOfBytes": "32",
+      "members": [
+        {
+          "astId": 2334,
+          "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+          "label": "feeBP",
+          "offset": 0,
+          "slot": "0",
+          "type": "t_uint16"
+        },
+        {
+          "astId": 2336,
+          "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeeUpgradeable.sol:OFTWithFeeUpgradeable",
+          "label": "enabled",
+          "offset": 2,
+          "slot": "0",
+          "type": "t_bool"
+        }
+      ]
+    },
+    "t_uint16": {
+      "encoding": "inplace",
+      "label": "uint16",
+      "numberOfBytes": "2"
+    },
+    "t_uint256": {
+      "encoding": "inplace",
+      "label": "uint256",
+      "numberOfBytes": "32"
+    },
+    "t_uint64": {
+      "encoding": "inplace",
+      "label": "uint64",
+      "numberOfBytes": "8"
+    },
+    "t_uint8": {
+      "encoding": "inplace",
+      "label": "uint8",
+      "numberOfBytes": "1"
+    }
+  }
+}
