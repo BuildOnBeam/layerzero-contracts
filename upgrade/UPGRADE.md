@@ -12,5 +12,5 @@ For that we will first compile with ```npx hardhat compile``` and then use the c
 
 This will result in a json file with the storage layout.
 
-
+To output the same information add the ```--pretty``` flag.
 
