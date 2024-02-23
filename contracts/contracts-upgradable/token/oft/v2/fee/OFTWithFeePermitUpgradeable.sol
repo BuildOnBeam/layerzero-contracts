@@ -30,7 +30,7 @@ contract OFTWithFeePermitUpgradeable is Initializable, BaseOFTWithFeeUpgradeable
         __OFTCoreV2Upgradeable_init_unchained(_sharedDecimals);
 
         __ERC20_init_unchained(_name, _symbol);
-        __ERC20Permit_init(_name);
+        __ERC20Permit_init_unchained(_name);
 
         __OFTWithFeeUpgradeable_init_unchained(_sharedDecimals);
     }
