@@ -14,3 +14,6 @@ This will result in a json file with the storage layout.
 
 To output the same information add the ```--pretty``` flag.
 
+## New contract layout
+
+By using the same forge commands we can generate the storage layout files to compare the new implementaion layout with the current one.
