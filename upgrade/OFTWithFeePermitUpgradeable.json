@@ -230,14 +230,14 @@
       "label": "__gap",
       "offset": 0,
       "slot": "399",
-      "type": "t_array(t_uint256)45_storage"
+      "type": "t_array(t_uint256)7_storage"
     },
     {
       "astId": 5687,
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "_hashedName",
       "offset": 0,
-      "slot": "444",
+      "slot": "406",
       "type": "t_bytes32"
     },
     {
@@ -245,7 +245,7 @@
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "_hashedVersion",
       "offset": 0,
-      "slot": "445",
+      "slot": "407",
       "type": "t_bytes32"
     },
     {
@@ -253,7 +253,7 @@
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "_name",
       "offset": 0,
-      "slot": "446",
+      "slot": "408",
       "type": "t_string_storage"
     },
     {
@@ -261,7 +261,7 @@
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "_version",
       "offset": 0,
-      "slot": "447",
+      "slot": "409",
       "type": "t_string_storage"
     },
     {
@@ -269,15 +269,15 @@
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "__gap",
       "offset": 0,
-      "slot": "448",
-      "type": "t_array(t_uint256)48_storage"
+      "slot": "410",
+      "type": "t_array(t_uint256)7_storage"
     },
     {
       "astId": 4402,
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "_nonces",
       "offset": 0,
-      "slot": "496",
+      "slot": "417",
       "type": "t_mapping(t_address,t_struct(Counter)5006_storage)"
     },
     {
@@ -285,7 +285,7 @@
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "_PERMIT_TYPEHASH_DEPRECATED_SLOT",
       "offset": 0,
-      "slot": "497",
+      "slot": "418",
       "type": "t_bytes32"
     },
     {
@@ -293,15 +293,15 @@
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "__gap",
       "offset": 0,
-      "slot": "498",
-      "type": "t_array(t_uint256)49_storage"
+      "slot": "419",
+      "type": "t_array(t_uint256)25_storage"
     },
     {
       "astId": 2618,
       "contract": "contracts/contracts-upgradable/token/oft/v2/fee/OFTWithFeePermitUpgradeable.sol:OFTWithFeePermitUpgradeable",
       "label": "ld2sdRate",
       "offset": 0,
-      "slot": "547",
+      "slot": "444",
       "type": "t_uint256"
     }
   ],
@@ -310,6 +310,12 @@
       "encoding": "inplace",
       "label": "address",
       "numberOfBytes": "20"
+    },
+    "t_array(t_uint256)25_storage": {
+      "encoding": "inplace",
+      "label": "uint256[25]",
+      "numberOfBytes": "800",
+      "base": "t_uint256"
     },
     "t_array(t_uint256)44_storage": {
       "encoding": "inplace",
@@ -323,12 +329,6 @@
       "numberOfBytes": "1440",
       "base": "t_uint256"
     },
-    "t_array(t_uint256)48_storage": {
-      "encoding": "inplace",
-      "label": "uint256[48]",
-      "numberOfBytes": "1536",
-      "base": "t_uint256"
-    },
     "t_array(t_uint256)49_storage": {
       "encoding": "inplace",
       "label": "uint256[49]",
@@ -339,6 +339,12 @@
       "encoding": "inplace",
       "label": "uint256[50]",
       "numberOfBytes": "1600",
+      "base": "t_uint256"
+    },
+    "t_array(t_uint256)7_storage": {
+      "encoding": "inplace",
+      "label": "uint256[7]",
+      "numberOfBytes": "224",
       "base": "t_uint256"
     },
     "t_bool": {
