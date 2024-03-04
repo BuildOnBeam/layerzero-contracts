@@ -260,6 +260,13 @@ module.exports = {
                 },
             },
         ],
+        settings: {
+            outputSelection: {
+                "*": {
+                    "*": ["storageLayout"],
+                },
+            },
+        },
     },
 
     contractSizer: {
