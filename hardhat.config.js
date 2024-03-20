@@ -273,6 +273,17 @@ module.exports = {
                     },
                 },
             },
+            // Multicall only - remove for LZ deployments
+            {
+                version: "0.8.23",
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 10_000_000,
+                    },
+                    evmVersion: "paris",
+                },
+            },
         ],
     },
 
