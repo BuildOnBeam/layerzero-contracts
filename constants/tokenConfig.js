@@ -59,6 +59,10 @@ module.exports = {
             symbol: "ETH",
             withFee: true,
         },
+        BeamcatProxyOFT: {
+            address: "0xEeee2A2E650697d2A8e8BC990C2f3d04203bE06f",
+            withFee: true,
+        },
     },
     "beam-testnet": {
         BeamNativeOFT: {
@@ -198,6 +202,13 @@ module.exports = {
     bsc: {
         DomiProxyOFT: {
             address: "0xBBCA42c60b5290F2c48871A596492F93fF0Ddc82",
+            withFee: true,
+        },
+    },
+    base: {
+        BeamcatOFT: {
+            name: "BEAMCAT",
+            symbol: "BCAT",
             withFee: true,
         },
     },

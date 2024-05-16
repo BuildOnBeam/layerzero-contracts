@@ -1,6 +1,6 @@
 # Beam Omnichain Tokens
 
-[LayerZero](https://layerzero.gitbook.io/docs/) is an omnichain interoperability protocol that connects Beam to other networks.
+[LayerZero](https://docs.layerzero.network/v1/) is an omnichain interoperability protocol that connects Beam to other networks.
 It enables everyone to build **Omnichain tokens and NFTs on Beam** that can be transferred cross-chain, and bridge existing assets from other networks.
 
 Merit Circle's [LayerZero contracts repository](https://github.com/Merit-Circle/layerzero-contracts) is forked from
@@ -255,8 +255,8 @@ npx hardhat --network avalanche etherscan-verify
 
 ## Supported networks
 
-The LayerZero protocol is active on a wide selection of [test](https://layerzero.gitbook.io/docs/technical-reference/testnet/testnet-addresses)- and
-[mainnets](https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids), though not all chains are interconnected by default.
+The LayerZero protocol is active on a wide selection of [test](https://docs.layerzero.network/v1/developers/technical-reference/testnet/testnet-addresses)- and
+[mainnets](https://docs.layerzero.network/v1/developers/technical-reference/mainnet/mainnet-addresses), though not all chains are interconnected by default.
 
 Currently, both Beam test- and mainnet connect to
 
@@ -265,5 +265,6 @@ Currently, both Beam test- and mainnet connect to
 - BNB Smart Chain
 - Fantom
 - Arbitrum
+- Base
 
 If your project requires interconnectivity with another network, [the Beam team](mailto:build@onbeam.com) is happy to help!

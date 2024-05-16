@@ -64,6 +64,8 @@ const apiKey = {
     arbitrum: process.env.ARBISCAN_API_KEY || "",
     "imtbl-zkevm-testnet": "a",
     "imtbl-zkevm": "a",
+    base: process.env.BASESCAN_API_KEY || "",
+    "base-testnet": process.env.BASESCAN_API_KEY || "",
 }
 
 const apiUrl = {
@@ -84,6 +86,8 @@ const apiUrl = {
     "arbitrum-goerli": "https://api-goerli.arbiscan.io",
     "imtbl-zkevm-testnet": "https://explorer.testnet.immutable.com/api",
     "imtbl-zkevm": "https://explorer.immutable.com/api",
+    base: "https://basescan.org",
+    "base-testnet": "https://sepolia.basescan.org",
 }
 
 // `hardhat-deploy etherscan-verify` network config
@@ -167,6 +171,12 @@ const networks = {
         chainId: 13371,
         accounts: accounts(),
     },
+    base: {
+        url: "https://mainnet.base.org",
+        chainId: 8453,
+        accounts: accounts(),
+        verify: verifyChain("base"),
+    },
 
     // testnets
     goerli: {
@@ -226,6 +236,12 @@ const networks = {
         url: "https://rpc.testnet.immutable.com",
         chainId: 13473,
         accounts: accounts(),
+    },
+    "base-testnet": {
+        url: "https://sepolia.base.org",
+        chainId: 84532,
+        accounts: accounts(),
+        verify: verifyChain("base-testnet"),
     },
 }
 

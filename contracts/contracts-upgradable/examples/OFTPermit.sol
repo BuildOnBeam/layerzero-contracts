@@ -12,3 +12,7 @@ contract ForgottenPlaylandProxyOFT is ProxyOFTWithFeeUpgradeable {}
 contract CastleOfBlackwaterOFT is OFTWithFeePermitUpgradeable {}
 
 contract CastleOfBlackwaterProxyOFT is ProxyOFTWithFeeUpgradeable {}
+
+contract BeamcatOFT is OFTWithFeePermitUpgradeable {}
+
+contract BeamcatProxyOFT is ProxyOFTWithFeeUpgradeable {}
