@@ -143,7 +143,7 @@ npx hardhat --network beam setupOFT --target-network ethereum --local-contract M
 # Ethereum
 npx hardhat --network ethereum setupOFT --target-network beam --local-contract MyUsdcProxyOFT --remote-contract MyUsdcOFT
 
-# important: add "--skip-adapter true" when _not_ using upgradeable contracts
+# important: add "--skip-adapter true" to the `setupOFT` command when *NOT* using upgradeable contracts (non-upgradeable contracts don't have this method)
 ```
 
 All done, let's test our bridge by transferring 20 USDC from Ethereum to Beam:
@@ -255,12 +255,12 @@ npx hardhat --network avalanche etherscan-verify
 
 ## Supported networks
 
-The LayerZero protocol is active on a wide selection of [test](https://docs.layerzero.network/v1/developers/technical-reference/testnet/testnet-addresses)- and
-[mainnets](https://docs.layerzero.network/v1/developers/technical-reference/mainnet/mainnet-addresses), though not all chains are interconnected by default.
+The LayerZero protocol is active on a wide selection of [test](https://docs.layerzero.network/v1/developers/evm/technical-reference/testnet/testnet-addresses)- and
+[mainnets](https://docs.layerzero.network/v1/developers/evm/technical-reference/mainnet/mainnet-addresses), though not all chains are interconnected by default.
 
 Currently, both Beam test- and mainnet connect to
 
-- Ethereum (Goerli & Sepolia on testnet)
+- Ethereum (Sepolia on testnet)
 - Avalanche C-Chain
 - BNB Smart Chain
 - Fantom
