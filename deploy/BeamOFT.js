@@ -17,8 +17,8 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
     }
 
     const tokenConfig = TOKEN_CONFIG[hre.network.name][CONTRACT_NAME]
-    if (!tokenConfig.name || !tokenConfig.symbol) {
-        console.error("No configuration found for target network.")
+    if (!tokenConfig.name || !tokenConfig.symbol || !lzEndpointAddress) {
+        console.error("No configuration found for target network:", hre.network.name)
         return
     }
 

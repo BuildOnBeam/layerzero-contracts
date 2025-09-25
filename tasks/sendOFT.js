@@ -51,6 +51,9 @@ module.exports = async function (taskArgs, hre) {
 
     // quote LZ fee with default adapterParams
     let adapterParams = ethers.utils.solidityPack(["uint16", "uint256"], [1, 10000000]) // default beam adapterParams example
+    console.log(
+        `estimating send fee. remoteChainId: ${remoteChainId}, toAddress: ${toAddressBytes}, qty: ${qty}, useZro: false, adapterParams: ${adapterParams}`
+    )
     let lzFees = await localContractInstance.estimateSendFee(remoteChainId, toAddressBytes, qty, false, adapterParams)
     console.log(`lzFees[0] (wei): ${lzFees[0]} / (eth): ${ethers.utils.formatEther(lzFees[0])}`)
 

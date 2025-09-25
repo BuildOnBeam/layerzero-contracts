@@ -84,18 +84,18 @@ const apiUrl = {
     "optimism-goerli": "https://api-goerli-optimistic.etherscan.io",
     arbitrum: "https://api.arbiscan.io",
     "arbitrum-goerli": "https://api-goerli.arbiscan.io",
-    "imtbl-zkevm-testnet": "https://explorer.testnet.immutable.com/api",
-    "imtbl-zkevm": "https://explorer.immutable.com/api",
-    base: "https://basescan.org",
-    "base-testnet": "https://sepolia.basescan.org",
+    "imtbl-zkevm-testnet": "https://explorer.testnet.immutable.com",
+    "imtbl-zkevm": "https://explorer.immutable.com",
+    base: "https://api.basescan.org",
+    "base-testnet": "https://api.sepolia.basescan.org",
 }
 
 // `hardhat-deploy etherscan-verify` network config
-function verifyChain(networkName) {
+function verifyChain(chainId) {
     return {
         etherscan: {
-            apiKey: apiKey[networkName] || undefined,
-            apiUrl: apiUrl[networkName] || undefined,
+            apiKey: process.env.ETHERSCAN_ONLY_API_KEY,
+            apiUrl: `https://api.etherscan.io/v2/api?chainid=${chainId}`,
         },
     }
 }
@@ -106,7 +106,7 @@ function customChain(networkName) {
         network: networkName,
         chainId: networks[networkName] ? networks[networkName].chainId : -1,
         urls: {
-            apiURL: apiUrl[networkName] ? `${apiUrl[networkName]}/api` : undefined,
+            apiURL: `https://api.etherscan.io/v2/api&chainid=${networks[networkName].chainId}`,
             browserURL: apiUrl[networkName] ? apiUrl[networkName].replace("api.", "").replace("api-", "") : undefined,
         },
     }
@@ -118,43 +118,43 @@ const networks = {
         url: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
         chainId: 1,
         accounts: accounts(),
-        verify: verifyChain("ethereum"),
+        verify: verifyChain(1),
     },
     bsc: {
         url: "https://bsc-dataseed1.binance.org",
         chainId: 56,
         accounts: accounts(),
-        verify: verifyChain("bsc"),
+        verify: verifyChain(56),
     },
     avalanche: {
         url: "https://api.avax.network/ext/bc/C/rpc",
         chainId: 43114,
         accounts: accounts(),
-        verify: verifyChain("avalanche"),
+        verify: verifyChain(43114),
     },
     polygon: {
         url: "https://rpc-mainnet.maticvigil.com",
         chainId: 137,
         accounts: accounts(),
-        verify: verifyChain("polygon"),
+        verify: verifyChain(137),
     },
     arbitrum: {
         url: "https://arb1.arbitrum.io/rpc",
         chainId: 42161,
         accounts: accounts(),
-        verify: verifyChain("arbitrum"),
+        verify: verifyChain(42161),
     },
     optimism: {
         url: "https://mainnet.optimism.io",
         chainId: 10,
         accounts: accounts(),
-        verify: verifyChain("optimism"),
+        verify: verifyChain(10),
     },
     fantom: {
         url: "https://rpcapi.fantom.network",
         chainId: 250,
         accounts: accounts(),
-        verify: verifyChain("fantom"),
+        verify: verifyChain(250),
     },
     metis: {
         url: "https://andromeda.metis.io/?owner=1088",
@@ -175,7 +175,7 @@ const networks = {
         url: "https://mainnet.base.org",
         chainId: 8453,
         accounts: accounts(),
-        verify: verifyChain("base"),
+        verify: verifyChain(8453),
     },
 
     // testnets
@@ -183,49 +183,49 @@ const networks = {
         url: "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
         chainId: 5,
         accounts: accounts(),
-        verify: verifyChain("goerli"),
+        verify: verifyChain(5),
     },
     sepolia: {
         url: "https://ethereum-sepolia.publicnode.com",
         chainId: 11155111,
         accounts: accounts(),
-        verify: verifyChain("sepolia"),
+        verify: verifyChain(11155111),
     },
     "bsc-testnet": {
         url: "https://data-seed-prebsc-1-s1.binance.org:8545/",
         chainId: 97,
         accounts: accounts(),
-        verify: verifyChain("bsc-testnet"),
+        verify: verifyChain(97),
     },
     fuji: {
         url: "https://api.avax-test.network/ext/bc/C/rpc",
         chainId: 43113,
         accounts: accounts(),
-        verify: verifyChain("fuji"),
+        verify: verifyChain(43113),
     },
     mumbai: {
         url: "https://rpc-mumbai.maticvigil.com/",
         chainId: 80001,
         accounts: accounts(),
-        verify: verifyChain("mumbai"),
+        verify: verifyChain(80001),
     },
     "arbitrum-goerli": {
         url: "https://goerli-rollup.arbitrum.io/rpc/",
         chainId: 421613,
         accounts: accounts(),
-        verify: verifyChain("arbitrum-goerli"),
+        verify: verifyChain(421613),
     },
     "optimism-goerli": {
         url: "https://goerli.optimism.io/",
         chainId: 420,
         accounts: accounts(),
-        verify: verifyChain("optimism-goerli"),
+        verify: verifyChain(420),
     },
     "fantom-testnet": {
         url: "https://rpc.ankr.com/fantom_testnet",
         chainId: 4002,
         accounts: accounts(),
-        verify: verifyChain("fantom-testnet"),
+        verify: verifyChain(4002),
     },
     "beam-testnet": {
         url: "https://subnets.avax.network/beam/testnet/rpc",
@@ -241,7 +241,7 @@ const networks = {
         url: "https://sepolia.base.org",
         chainId: 84532,
         accounts: accounts(),
-        verify: verifyChain("base-testnet"),
+        verify: verifyChain(84532),
     },
 }
 
