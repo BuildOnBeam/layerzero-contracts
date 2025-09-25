@@ -211,5 +211,10 @@ module.exports = {
             symbol: "BCAT",
             withFee: true,
         },
+        BeamOFT: {
+            name: "Beam",
+            symbol: "BEAM",
+            withFee: true,
+        },
     },
 }
