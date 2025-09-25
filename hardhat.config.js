@@ -115,7 +115,7 @@ function customChain(networkName) {
 const networks = {
     // mainnets
     ethereum: {
-        url: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
+        url: "https://eth.llamarpc.com",
         chainId: 1,
         accounts: accounts(),
         verify: verifyChain(1),
