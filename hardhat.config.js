@@ -117,7 +117,7 @@ function customChain(networkName) {
 const networks = {
     // mainnets
     ethereum: {
-        url: "https://eth.llamarpc.com",
+        url: "https://1rpc.io/eth",
         chainId: 1,
         accounts: accounts(),
         verify: verifyChain(1),
@@ -180,7 +180,7 @@ const networks = {
         verify: verifyChain(8453),
     },
     hyperevm: {
-        url: "https://rpc.hyperevm.io",
+        url: "https://rpc.hyperliquid.xyz/evm",
         chainId: 999,
         accounts: accounts(),
         verify: verifyChain(999),
