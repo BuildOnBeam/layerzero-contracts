@@ -8,7 +8,8 @@
     "optimism",
     "fantom",
     "beam",
-    "base"
+    "base",
+    "hyperevm"
   ],
   "testnet": [
     "goerli",

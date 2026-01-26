@@ -217,4 +217,11 @@ module.exports = {
             withFee: true,
         },
     },
+    hyperevm: {
+        BeamOFT: {
+            name: "Beam",
+            symbol: "BEAM",
+            withFee: true,
+        },
+    },
 }

@@ -66,6 +66,7 @@ const apiKey = {
     "imtbl-zkevm": "a",
     base: process.env.BASESCAN_API_KEY || "",
     "base-testnet": process.env.BASESCAN_API_KEY || "",
+    hyperevm: process.env.ETHERSCAN_ONLY_API_KEY || "",
 }
 
 const apiUrl = {
@@ -88,6 +89,7 @@ const apiUrl = {
     "imtbl-zkevm": "https://explorer.immutable.com",
     base: "https://api.basescan.org",
     "base-testnet": "https://api.sepolia.basescan.org",
+    hyperevm: "https://api.hyperevmscan.io",
 }
 
 // `hardhat-deploy etherscan-verify` network config
@@ -176,6 +178,12 @@ const networks = {
         chainId: 8453,
         accounts: accounts(),
         verify: verifyChain(8453),
+    },
+    hyperevm: {
+        url: "https://rpc.hyperevm.io",
+        chainId: 999,
+        accounts: accounts(),
+        verify: verifyChain(999),
     },
 
     // testnets

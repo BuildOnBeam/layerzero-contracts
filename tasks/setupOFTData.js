@@ -21,7 +21,7 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
     const remoteAddress = getDeploymentAddresses(targetNetwork)[remoteContract]
     const remoteAndLocal = hre.ethers.utils.solidityPack(["address", "address"], [remoteAddress, localContractInstance.address])
 
-    console.log("Bridge contract address:", localContractInstance.address)
+    console.log("Bridge contract address:", hre.network.name, localContractInstance.address)
     console.log("setTrustedRemote:", remoteChainId, remoteAndLocal)
     console.log("setMinDstGas:", remoteChainId, 0, minGas)
     console.log("setMinDstGas:", remoteChainId, 1, minGas)
