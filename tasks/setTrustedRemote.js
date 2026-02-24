@@ -29,6 +29,8 @@ module.exports = async function (taskArgs, hre) {
     // concat remote and local address
     let remoteAndLocal = hre.ethers.utils.solidityPack(["address", "address"], [remoteAddress, localContractInstance.address])
 
+    console.log(`Setting trusted remote with params: ${remoteChainId}, ${remoteAndLocal}`)
+
     // check if pathway is already set
     const isTrustedRemoteSet = await localContractInstance.isTrustedRemote(remoteChainId, remoteAndLocal)
 

@@ -266,5 +266,6 @@ Currently, both Beam test- and mainnet connect to
 - Fantom
 - Arbitrum
 - Base
+- HyperEVM
 
 If your project requires interconnectivity with another network, [the Beam team](mailto:build@onbeam.com) is happy to help!
