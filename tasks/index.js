@@ -194,6 +194,16 @@ task("setupONFT1155", "go through all steps of the base ONFT setup", require("./
     .addOptionalParam("minGas", "gas config", 0, types.int)
     .addOptionalParam("skipAdapter", "skip setting custom adapter params", false, types.boolean)
 
+task("setupUln301", "Migrate V1 OFT to ULN301", require("./setupUln301"))
+    .addParam("localContract", "name of contract on source chain")
+    .addOptionalParam("dataOnly", "skip sending actual transactions", true, types.boolean)
+
+task("setupDVNs", "Setup DVNs", require("./setupDVNs"))
+    .addParam("localContract", "name of contract on source chain")
+    .addParam("remoteContract", "name of contract on destination chain")
+    .addParam("targetNetwork", "destination network")
+    .addOptionalParam("dataOnly", "skip sending actual transactions", true, types.boolean)
+
 task("transfer", "Fetches all ERC-20 Transfer events from a list of transaction IDs").setAction(async (taskArgs, hre) => {
     const txIds = [
         "0xff076be87f4bf6158d625118d8e9e2001c7dbd1a7e72a3d014f7771bdfa6dc0d",

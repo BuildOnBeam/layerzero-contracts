@@ -1,4 +1,15 @@
-module.exports = {
+const { dvns, NIL_CONFIRMATIONS, NIL_DVN_COUNT, LZ, HORIZEN, NETHERMIND, CANARY } = require("./dvns")
+
+const ULN = {
+    confirmations: undefined,
+    requiredDVNCount: undefined,
+    optionalDVNCount: undefined,
+    optionalDVNThreshold: undefined,
+    requiredDVNs: [],
+    optionalDVNs: [],
+}
+
+const tokens = {
     beam: {
         BeamNativeOFT: {
             name: "LayerZero Beam",
@@ -103,6 +114,11 @@ module.exports = {
             name: "Avalanche",
             symbol: "AVAX",
             withFee: true,
+            sendConfig: {
+                ...ULN,
+                confirmations: 1,
+                requiredDVNs: [LZ],
+            },
         },
     },
     ethereum: {
@@ -186,6 +202,11 @@ module.exports = {
             symbol: "LZAVAX",
             withFee: true,
             isNative: true,
+            sendConfig: {
+                ...ULN,
+                confirmations: 1,
+                requiredDVNs: [LZ],
+            },
         },
         BeamOFT: {
             name: "Beam",
@@ -222,6 +243,52 @@ module.exports = {
             name: "Beam",
             symbol: "BEAM",
             withFee: true,
+            sendConfig: {
+                ...ULN,
+                confirmations: 1,
+                requiredDVNs: [LZ, HORIZEN],
+                optionalDVNs: [CANARY, NETHERMIND],
+            },
         },
     },
 }
+
+// check and complete ULN config for all tokens
+Object.keys(tokens).forEach((chain) => {
+    Object.keys(tokens[chain]).forEach((token) => {
+        const tokenConfig = tokens[chain][token]
+        const uln = tokenConfig.sendConfig
+        if (uln) {
+            if (!uln.requiredDVNs || !uln.requiredDVNs.length) {
+                throw new Error(`Token ${token} on chain ${chain} has an ulnConfig but no requiredDVNs`)
+            }
+            if (!uln.optionalDVNs || (uln.optionalDVNThreshold > 0 && !uln.optionalDVNs.length)) {
+                throw new Error(`Token ${token} on chain ${chain} has an ulnConfig but no optionalDVNs`)
+            }
+
+            if (uln.requiredDVNs.filter((dvn) => !dvn).length > 0 || uln.optionalDVNs.filter((dvn) => !dvn).length > 0) {
+                throw new Error(`Token ${token} on chain ${chain} has an ulnConfig with non-existing requiredDVNs or optionalDVNs`)
+            }
+
+            if (uln.confirmations === undefined || uln.confirmations < 0) {
+                throw new Error(`Token ${token} on chain ${chain} has an ulnConfig with invalid confirmations`)
+            }
+
+            const resolveDvn = (dvn) => {
+                if (!dvns[chain] || !dvns[chain][dvn]) {
+                    throw new Error(`Token ${token} on chain ${chain} has an ulnConfig with non-existing dvn ${dvn}`)
+                }
+            }
+
+            uln.requiredDVNs.forEach(resolveDvn)
+            uln.optionalDVNs.forEach(resolveDvn)
+
+            tokens[chain][token].sendConfig.optionalDVNThreshold =
+                uln.optionalDVNThreshold != null ? uln.optionalDVNThreshold : uln.optionalDVNs.length ? 1 : 0
+            tokens[chain][token].sendConfig.requiredDVNCount = uln.requiredDVNs.length
+            tokens[chain][token].sendConfig.optionalDVNCount = uln.optionalDVNs.length /*|| NIL_DVN_COUNT*/
+        }
+    })
+})
+
+module.exports = tokens
