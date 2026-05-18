@@ -6,6 +6,7 @@ const { dvns } = require("../constants/dvns")
 
 const ULN_CONFIG_TYPE = 2
 
+// Encode the UlnConfig struct
 function encodeUlnConfig(config) {
     return ethers.utils.defaultAbiCoder.encode(
         [
@@ -25,6 +26,7 @@ function encodeUlnConfig(config) {
 }
 
 module.exports = async function ({ localContract, remoteContract, targetNetwork, dataOnly }, hre) {
+    // Basic config checks
     const localNetwork = hre.network.name
     if (!dvns[targetNetwork]) {
         throw new Error(`No DVNs found for target network ${targetNetwork}`)
@@ -54,6 +56,7 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
         throw new Error(`No configuration found for target contract ${remoteContract} on network ${targetNetwork}`)
     }
 
+    // Gather and prepare necessary data
     const remoteEid = CHAIN_ID[targetNetwork]
     console.log("\nNetwork: ", hre.network.name)
     console.log(`Remote chain: ${targetNetwork} (${remoteEid})`)
@@ -65,6 +68,7 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
     const sendConfig = TOKEN_CONFIG[localNetwork][localContract].sendConfig
     const receiveConfig = TOKEN_CONFIG[targetNetwork][remoteContract].sendConfig
 
+    // Build final DVN lists for send and receive configs
     sendConfig.requiredDVNs = sendConfig.requiredDVNs.map((dvnId) => dvns[localNetwork][dvnId])
     receiveConfig.requiredDVNs = receiveConfig.requiredDVNs.map((dvnId) => dvns[localNetwork][dvnId])
 
@@ -77,17 +81,18 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
     sendConfig.optionalDVNs = sendConfig.optionalDVNs.sort()
 
     if (sendConfig.requiredDVNs.filter((dvn) => !dvn).length > 0 || sendConfig.optionalDVNs.filter((dvn) => !dvn).length > 0) {
-        throw new Error("Some DVNs are missing the send configuration")
+        throw new Error("Some DVNs are missing in the send configuration")
     }
 
     if (receiveConfig.requiredDVNs.filter((dvn) => !dvn).length > 0 || receiveConfig.optionalDVNs.filter((dvn) => !dvn).length > 0) {
-        throw new Error("Some DVNs are missing the receive configuration")
+        throw new Error("Some DVNs are missing in the receive configuration")
     }
 
     // Encode UlnConfig
     const encodedSendConfig = encodeUlnConfig(sendConfig)
     const encodedReceiveConfig = encodeUlnConfig(receiveConfig)
 
+    // Get endpoint and current config versions
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log("\nV1 Endpoint: ", lzEndpointAddress)
     const endpoint = await hre.ethers.getContractAt(ABI, lzEndpointAddress)
@@ -97,6 +102,7 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
     const currentReceive = await endpoint.getReceiveVersion(localContractInstance.address)
     console.log("Current receive version: ", currentReceive.toString())
 
+    // Set config or generate data for Safe transactions
     if (!dataOnly) {
         const txSend = await (await localContractInstance.setConfig(currentSend, remoteEid, ULN_CONFIG_TYPE, encodedSendConfig)).wait()
         const txReceive = await (await localContractInstance.setConfig(currentReceive, remoteEid, ULN_CONFIG_TYPE, encodedReceiveConfig)).wait()
