@@ -102,7 +102,9 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
         const txReceive = await (await localContractInstance.setConfig(currentReceive, remoteEid, ULN_CONFIG_TYPE, encodedReceiveConfig)).wait()
     } else {
         console.log(`\n\nSend: OFT.setConfig(${currentSend}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedSendConfig})`)
-        console.log(`\nReceive: OFT.setConfig(${currentReceive}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedReceiveConfig})`)
+        console.log(`-- raw sendConfig: ${JSON.stringify(sendConfig, null, 2)}`)
+        console.log(`\n\nReceive: OFT.setConfig(${currentReceive}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedReceiveConfig})`)
+        console.log(`-- raw receiveConfig: ${JSON.stringify(receiveConfig, null, 2)}`)
 
         console.log("\n\nData only mode, skipping transactions. Disable with '--dataOnly false'")
     }
