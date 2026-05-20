@@ -53,3 +53,7 @@ contract GoldOFT is OFTWithFeePermitUpgradeable {
 }
 
 contract GoldProxyOFT is ProxyOFTWithFeeUpgradeable {}
+
+contract BoberOFT is OFTWithFeePermitUpgradeable {}
+
+contract BoberProxyOFT is ProxyOFTWithFeeUpgradeable {}

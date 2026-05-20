@@ -120,6 +120,15 @@ const tokens = {
                 requiredDVNs: [LZ],
             },
         },
+        BoberProxyOFT: {
+            address: "0x16f001514C5953Bd6505D3007F58DE1Ca496de12",
+            withFee: true,
+            sendConfig: {
+                ...ULN,
+                confirmations: 1,
+                requiredDVNs: [LZ],
+            },
+        },
     },
     ethereum: {
         BeamProxyOFT: {
@@ -212,6 +221,16 @@ const tokens = {
             name: "Beam",
             symbol: "BEAM",
             withFee: true,
+        },
+        BoberOFT: {
+            name: "Bober",
+            symbol: "BOB",
+            withFee: true,
+            sendConfig: {
+                ...ULN,
+                confirmations: 1,
+                requiredDVNs: [LZ],
+            },
         },
     },
     arbitrum: {
