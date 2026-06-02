@@ -1,6 +1,8 @@
 const setTrustedRemote = require("./setTrustedRemote")
 const setMinDstGas = require("./setMinDstGas")
 const setCustomAdapterParams = require("./setCustomAdapterParams")
+const setupDVNs = require("./setupDVNs")
+const setupUln301 = require("./setupUln301")
 const TOKEN_CONFIG = require("../constants/tokenConfig")
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -55,9 +57,9 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
         },
         hre
     )
-    await wait(5000)
 
     if (!skipAdapter && !gasOnly) {
+        await wait(5000)
         console.log("\nsetting custom adapter params...\n")
         await setCustomAdapterParams(
             {
@@ -67,5 +69,32 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
         )
     } else {
         console.log("\nskipped setting custom adapter params.\n")
+    }
+
+    if (!gasOnly) {
+        if (!skipAdapter) {
+            await wait(3000)
+            console.log("\nsetting ULN301 params...\n")
+            await setupUln301(
+                {
+                    localContract,
+                    dataOnly: false,
+                },
+                hre
+            )
+        } else {
+            console.log("\nskipped setting ULN301 params.\n")
+        }
+        await wait(3000)
+        console.log("\nsetting DVN config...\n")
+        await setupDVNs(
+            {
+                localContract,
+                remoteContract,
+                targetNetwork,
+                dataOnly: false,
+            },
+            hre
+        )
     }
 }

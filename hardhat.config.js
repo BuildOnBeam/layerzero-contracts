@@ -117,7 +117,7 @@ function customChain(networkName) {
 const networks = {
     // mainnets
     ethereum: {
-        url: "https://1rpc.io/eth",
+        url: "https://ethereum-rpc.publicnode.com",
         chainId: 1,
         accounts: accounts(),
         verify: verifyChain(1),
@@ -174,7 +174,7 @@ const networks = {
         accounts: accounts(),
     },
     base: {
-        url: "https://mainnet.base.org",
+        url: "https://base.drpc.org",
         chainId: 8453,
         accounts: accounts(),
         verify: verifyChain(8453),

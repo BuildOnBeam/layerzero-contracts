@@ -204,6 +204,12 @@ task("setupDVNs", "Setup DVNs", require("./setupDVNs"))
     .addParam("targetNetwork", "destination network")
     .addOptionalParam("dataOnly", "skip sending actual transactions", true, types.boolean)
 
+task("migrateV2", "Migrate to V2 protocol", require("./migrateV2"))
+    .addParam("localContract", "name of contract on source chain")
+    .addParam("remoteContract", "name of contract on destination chain")
+    .addParam("targetNetwork", "destination network")
+    .addOptionalParam("dataOnly", "skip sending actual transactions", true, types.boolean)
+
 task("transfer", "Fetches all ERC-20 Transfer events from a list of transaction IDs").setAction(async (taskArgs, hre) => {
     const txIds = [
         "0xff076be87f4bf6158d625118d8e9e2001c7dbd1a7e72a3d014f7771bdfa6dc0d",

@@ -1,10 +1,8 @@
 const TOKEN_CONFIG = require("../constants/tokenConfig")
 const LZ_ENDPOINTS = require("../constants/layerzeroEndpoints.json")
-const CHAIN_ID = require("../constants/chainIds.json")
 const ABI = require("../constants/endpoint_abi.json")
-const { dvns } = require("../constants/dvns")
-
-const ULN_CONFIG_TYPE = 2
+const { dvns, NIL_DVN_COUNT, ULN_CONFIG_TYPE } = require("../constants/dvns")
+const eidV1 = require("../constants/chainIds.json")
 
 // Encode the UlnConfig struct
 function encodeUlnConfig(config) {
@@ -26,6 +24,7 @@ function encodeUlnConfig(config) {
 }
 
 module.exports = async function ({ localContract, remoteContract, targetNetwork, dataOnly }, hre) {
+    console.log(`\n\n=== Setting up DVNs for cross-chain communication (${hre.network.name} -> ${targetNetwork}) ===`)
     // Basic config checks
     const localNetwork = hre.network.name
     if (!dvns[targetNetwork]) {
@@ -57,7 +56,10 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
     }
 
     // Gather and prepare necessary data
-    const remoteEid = CHAIN_ID[targetNetwork]
+    const remoteEid = eidV1[targetNetwork]
+    if (!remoteEid) {
+        throw new Error(`No endpoint ID (EID) found for target network ${targetNetwork}`)
+    }
     console.log("\nNetwork: ", hre.network.name)
     console.log(`Remote chain: ${targetNetwork} (${remoteEid})`)
 
@@ -96,22 +98,27 @@ module.exports = async function ({ localContract, remoteContract, targetNetwork,
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log("\nV1 Endpoint: ", lzEndpointAddress)
     const endpoint = await hre.ethers.getContractAt(ABI, lzEndpointAddress)
+    const latestVersion = await endpoint.latestVersion()
+    const receiveUln301Version = latestVersion
+    const sendUln301Version = latestVersion - 1
 
-    const currentSend = await endpoint.getSendVersion(localContractInstance.address)
-    console.log("Current send version: ", currentSend.toString())
-    const currentReceive = await endpoint.getReceiveVersion(localContractInstance.address)
-    console.log("Current receive version: ", currentReceive.toString())
+    console.log("Target send version: ", sendUln301Version.toString())
+    console.log("Target receive version: ", receiveUln301Version.toString())
+
+    console.log(`\n\nSend: OFT.setConfig(${sendUln301Version}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedSendConfig})`)
+    // console.log(`-- raw sendConfig: ${JSON.stringify(sendConfig, null, 2)}`)
+    console.log(`\n\nReceive: OFT.setConfig(${receiveUln301Version}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedReceiveConfig})`)
+    // console.log(`-- raw receiveConfig: ${JSON.stringify(receiveConfig, null, 2)}`)
 
     // Set config or generate data for Safe transactions
     if (!dataOnly) {
-        const txSend = await (await localContractInstance.setConfig(currentSend, remoteEid, ULN_CONFIG_TYPE, encodedSendConfig)).wait()
-        const txReceive = await (await localContractInstance.setConfig(currentReceive, remoteEid, ULN_CONFIG_TYPE, encodedReceiveConfig)).wait()
+        const txSend = await (await localContractInstance.setConfig(sendUln301Version, remoteEid, ULN_CONFIG_TYPE, encodedSendConfig)).wait()
+        console.log("setConfig send success, tx hash: ", txSend.transactionHash)
+        const txReceive = await (
+            await localContractInstance.setConfig(receiveUln301Version, remoteEid, ULN_CONFIG_TYPE, encodedReceiveConfig)
+        ).wait()
+        console.log("setConfig receive success, tx hash: ", txReceive.transactionHash)
     } else {
-        console.log(`\n\nSend: OFT.setConfig(${currentSend}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedSendConfig})`)
-        console.log(`-- raw sendConfig: ${JSON.stringify(sendConfig, null, 2)}`)
-        console.log(`\n\nReceive: OFT.setConfig(${currentReceive}, ${remoteEid}, ${ULN_CONFIG_TYPE}, ${encodedReceiveConfig})`)
-        console.log(`-- raw receiveConfig: ${JSON.stringify(receiveConfig, null, 2)}`)
-
-        console.log("\n\nData only mode, skipping transactions. Disable with '--dataOnly false'")
+        console.log("\n\nData only mode, skipping transactions. Disable with '--data-only false'")
     }
 }

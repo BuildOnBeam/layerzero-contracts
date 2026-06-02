@@ -2,7 +2,7 @@ const LZ_ENDPOINTS = require("../constants/layerzeroEndpoints.json")
 const ABI = require("../constants/endpoint_abi.json")
 
 module.exports = async function (taskArgs, hre) {
-    console.log("\nNetwork: ", hre.network.name)
+    console.log(`\n=== Setting up ULN301 on ${hre.network.name} OFT contract ===`)
 
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log("V1 Endpoint: ", lzEndpointAddress)
@@ -25,14 +25,16 @@ module.exports = async function (taskArgs, hre) {
     const currentReceiveLib = await endpoint.getReceiveLibraryAddress(localContractInstance.address)
     console.log("Current receive library: ", currentReceiveLib)
 
-    console.log("\nsetSendVersion:", sendUln301Version.toString())
-    console.log("setReceiveVersion: ", receiveUln301Version.toString())
+    console.log("\nOFT.setSendVersion:", sendUln301Version.toString())
+    console.log("OFT.setReceiveVersion: ", receiveUln301Version.toString())
 
     if (taskArgs.dataOnly) {
-        console.log("\nData only mode, skipping transactions. Disable with '--dataOnly false'")
+        console.log("\nData only mode, skipping transactions. Disable with '--data-only false'")
         return
     }
 
     const txSend = await (await localContractInstance.setSendVersion(sendUln301Version)).wait()
+    console.log("setSendVersion success, tx hash: ", txSend.transactionHash)
     const txReceive = await (await localContractInstance.setReceiveVersion(receiveUln301Version)).wait()
+    console.log("setReceiveVersion success, tx hash: ", txReceive.transactionHash)
 }
